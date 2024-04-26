@@ -3,7 +3,6 @@
 
 class SignupContrClass extends SignupClass
 {
-
     private $uid;
     private $pwd;
     private $pwdrepeat;
@@ -19,29 +18,24 @@ class SignupContrClass extends SignupClass
 
     public function signupuser()
     {
-        echo 'comes';
         if ($this->emptyInputs() === false) {
             header('Location: ../index.php?error=emptyInputs');
             echo 'exit inputs';
-
             exit();
         }
         if ($this->invalidUid() === false) {
             header('Location: ../index.php?error=invalidUid');
             echo 'exit uid';
-
             exit();
         }
         if ($this->invalidPwd() === false) {
             header('Location: ../index.php?error=invalidPwd');
             echo 'exit pwd';
-
             exit();
         }
         if ($this->invalidEmail() === false) {
             header('Location: ../index.php?error=invalidEmail');
             echo 'exit email';
-
             exit();
         }
         if ($this->uidTakenCheck() === false) {
@@ -92,10 +86,7 @@ class SignupContrClass extends SignupClass
 
     private function uidTakenCheck()
     {
-        $result = true;
-        if ($this->checkUser($this->uid, $this->email)) {
-            $result = false;
-        }
+        $result = $this->checkUser($this->uid, $this->email);
         return $result;
     }
 }

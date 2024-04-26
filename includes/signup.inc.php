@@ -13,7 +13,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     include_once '../classes/SignupClass.php';
     include_once '../classes/SignupContrClass.php';
 
+
+
+
+
     $signup = new SignupContrClass($uid, $pwd, $pwdrepeat, $email);
+
     $signup->signupuser();
 }
 
