@@ -56,6 +56,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             font-size: 16px;
         }
 
+        .header .profile {
+            position: absolute;
+            right: 120px;
+            top: 20px;
+            padding: 9px 20px;
+            background: #f44336;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+
+        }
+
         .content {
             padding: 40px 20px;
             text-align: center;
@@ -99,9 +113,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </div>
         <span><?php echo $email ?></span>
 
-        <form method='post' action="./home.inc.php">
+        <form style="display: flex" method='post' action="./home.inc.php">
             <button type="submit" class="logout" onclick="alert('Logging out!');">Logout</button>
+            <a href='/includes/profile.inc.php' class='profile'>Profile</a>
         </form>
+
     </div>
     <div class="content">
         <h2>Explore Our Features</h2>
