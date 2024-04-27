@@ -38,6 +38,7 @@ class LoginClass extends Dbh
                     session_start();
                     $_SESSION['user_email'] = $result[0]['users_email'];
                     $_SESSION['user_uid'] = $result[0]['users_uid'];
+                    $_SESSION['user_id'] = $result[0]['users_id'];
                     return $result;
                 } else {
                     $stmt = null;

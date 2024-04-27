@@ -1,3 +1,18 @@
+<?php
+
+session_start();
+
+include_once '../classes/Dbh.php';
+include_once '../classes/ProfileInfoClass.php';
+include_once '../classes/ProfileInfoContrClass.php';
+include_once '../classes/ProfileViewClass.php';
+
+$result = new ProfileViewClass();
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,18 +26,19 @@
 <body>
 
     <div class="profile-container">
+        <a href="./home.inc.php">⬅️Go Back</a>
         <div class="profile-header">
             <h1>User Profile</h1>
-            <p>Username: JohnDoe</p>
+            <p>Username: <?php echo $_SESSION['user_uid'] ?></p>
         </div>
 
         <div class="bio">
             <h2>About Me</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vehicula velit nec aliquet facilisis. Proin eget consectetur magna. Nulla facilisi. Sed vel magna ut lorem fermentum faucibus.</p>
-            <p>Email: johndoe@example.com</p>
-            <p>Location: New York City</p>
+            <p>Hi I am <?php echo $result->getAbout($_SESSION['user_id']) ?></p>
+            <p>Title: <?php echo $result->getIntroTitle($_SESSION['user_id']) ?></p>
+            <p>Intro: <?php echo $result->getIntroText($_SESSION['user_id']) ?></p>
             <div class='button-div'>
-                <a href='/' class="button">Edit Profile</a>
+                <a href='./profile.inc.settings.php' class="button">Edit Profile</a>
             </div>
         </div>
     </div>

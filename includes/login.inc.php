@@ -11,6 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     include_once '../classes/Dbh.php';
     include_once '../classes/LoginClass.php';
     include_once '../classes/LoginContrClass.php';
+
     $login = new LoginContrClass($pwd, $email);
     $login->loginuser();
 }

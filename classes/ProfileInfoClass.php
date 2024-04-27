@@ -3,10 +3,10 @@
 
 class ProfileInfoClass extends Dbh
 {
-    protected function getProfileInfo($userId)
+    public function getProfileInfo($userId)
     {
         $stmt = $this->connect()->prepare('select * from profiles where users_id = :userId');
-        $stmt->bindValue(':usersId', $userId);
+        $stmt->bindValue(':userId', $userId);
 
         if (!$stmt->execute()) {
             $stmt = null;
@@ -29,11 +29,11 @@ class ProfileInfoClass extends Dbh
         $stmt = $this->connect()->prepare('update profiles set profiles_about = :profileAbout,
                                            profiles_introtitle = :profileTitle, 
                                            profiles_introtext = :profileText where users_id = :usersId');
+
         $stmt->bindValue(':usersId', $userId);
         $stmt->bindValue(':profileAbout', $profileAbout);
         $stmt->bindValue(':profileTitle', $profileTitle);
         $stmt->bindValue(':profileText', $profileText);
-
 
         if (!$stmt->execute()) {
             $stmt = null;

@@ -47,4 +47,25 @@ class SignupClass extends Dbh
             die();
         }
     }
+
+    public function getUserId($uid)
+    {
+        $stmt = $this->connect()->prepare('select users_id from users where users_uid = :users_uid');
+        $stmt->bindValue(':users_uid', $uid);
+
+        if (!$stmt->execute()) {
+            $stmt = null;
+            header('Location: ../includes/signup.inc.php?message=stmterror');
+            exit();
+        }
+
+        if ($stmt->rowCount() == 0) {
+            $stmt = null;
+            header('Location: ../includes/signup.inc.php?message=usernotfound');
+            exit();
+        }
+
+        $userId = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $userId;
+    }
 }

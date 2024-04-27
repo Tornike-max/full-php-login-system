@@ -89,4 +89,10 @@ class SignupContrClass extends SignupClass
         $result = $this->checkUser($this->uid, $this->email);
         return $result;
     }
+
+    public function fetchUserId($uid)
+    {
+        $userId = $this->getUserId($uid);
+        return $userId[0]['users_id'];
+    }
 }
