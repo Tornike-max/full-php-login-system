@@ -40,7 +40,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             <input type="submit" value="Login">
         </form>
-        <p>Don't have an account? <a href="signup.php">Signup here</a>.</p>
+        <p>Don't have an account? <a href="signup.inc.php">Signup here</a>.</p>
+        <p>Forgot password? <a href="update.inc.php">Change password</a>.</p>
     </div>
 </body>
 
